@@ -1,31 +1,11 @@
-window.name = 'tim';
 var whoseTurn = 'x'; // Start with X
 var movesx = []; // Moves for x
 var moveso = []; // Moves for o
-var gameID = 'alskdjfladskfjladksfjad934u'; // Terrible security, more of a proof of concept
 var playerx;
 var playero;
 
 // Just a simple array of all of the potential winning moves
 var winningMoves = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]];
-
-// If you want to prevent dragging, uncomment this section
-function preventBehavior(e) 
-{ 
-  	e.preventDefault();
-};
-document.addEventListener("touchmove", preventBehavior, false);
-
-function onBodyLoad()
-{
-	document.addEventListener("deviceready",onDeviceReady,false);
-}
-
-/* When this function is called, PhoneGap has been initialized and is ready to roll */
-function onDeviceReady()
-{
-	
-}
 
 // #winning 
 function charlieSheen(){
@@ -36,11 +16,9 @@ function charlieSheen(){
 		var check = moveso;
 		var player = playero;
 	}
-	
 	if(movesx.length + moveso.length == 9){
 		var deadlock = true;
 	}
-	
 	//For loop for each potential winning move set
 	for(i=0;i<winningMoves.length; i++){	
 		var win = 0; // if this hits 3 then we have a winner
@@ -52,20 +30,10 @@ function charlieSheen(){
 		}
 		if(win == 3){
 			alert('We got a winner... it is '+player+'!');
-			if(name != null){
-				// Phonegap specific
-				// Create an external leaderboard!
-				// var phone_name = device.name;				
-				/*$.post('', {id:gameID, user_name:name, phone:phone_name},function(data){
-					if(confirm('View leaderboard?')){
-						
-					}
-				});*/
-			}
-			if(confirm('Play again?')){
-				resetBoard();
-				return true;
-			}
+		}
+		if(confirm('Play again?')){
+			resetBoard();
+			return true;
 		}
 	}
 	if(deadlock == true){
@@ -88,13 +56,11 @@ function displayTurn(){
 function resetLast(){
 	var last;
 	if(whoseTurn == 'x'){
-		// O went last
-		last = moveso.pop();
+		last = moveso.pop();		// O went last
 		$('#button'+last+'').removeClass('selectedo clicked');
 		whoseTurn = 'o';
 	}else{ 
-		// X went last
-		last = movesx.pop();
+		last = movesx.pop();		// X went last
 		$('#button'+last).removeClass('selectedx clicked');
 		whoseTurn = 'x';
 	}
@@ -102,13 +68,11 @@ function resetLast(){
 	if(movesx.length == 0 && moveso.length == 0){
 		$('#resetLastMove').css('visibility', 'hidden');
 	}
-	
 	displayTurn();
 }
 
 // Kind of cheating on the javascript here using jquery, but hey...we're just prototyping
 $(document).ready(function(){
-	
 	$('#play').bind('click', function(){
 		playerx = $('input[name="player_x"]').val();
 		playero = $('input[name="player_o"]').val();
@@ -118,23 +82,19 @@ $(document).ready(function(){
 		if(playero == ''){
 			playero = 'Player O';
 		}
-		
 		$('#container').css('-webkit-transform','translate(-320px, 0px)');
 		displayTurn();
 	});
-	
 	$('#startOver').bind('touchstart', function(){
 		resetBoard();
 	});
-	
 	$('.button').bind('touchstart', function(){
 		if($(this).hasClass('clicked') == true){
 			return false;
 		}else{
 			$(this).addClass('clicked');	// make it unselectable
 			button = $(this).attr('id');	// pull out which id it is
-			button = button.replace('button', '');	// remove button from the id selector to get the num
-			
+			button = button.replace('button', '');	// remove button from the id selector to get the num	
 			// a little repetitve here, could probably be rewritten more consisely
 			if(whoseTurn == 'x'){
 				$(this).addClass('selectedx');	// put an x in there	
@@ -145,7 +105,6 @@ $(document).ready(function(){
 				moveso.push(+button); // (the plus is a trick to change it to an int)
 				nextTurn = 'x';
 			}
-			
 			$('#resetLastMove').css('visibility', 'visible');
 			if(charlieSheen() == true){ // check to see if we're #winning
 				return;
@@ -154,7 +113,6 @@ $(document).ready(function(){
 			displayTurn(); // switch turns
 		}
 	});
-
 	$('#resetLastMove').bind('touchstart', function(){
 		resetLast();
 	});
