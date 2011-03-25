@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<!-- Change this if you want to allow scaling -->
+    <meta name="viewport" content="width=default-width; user-scalable=no" />
+
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+    <title>Tic Tac Toe Phone Gap!</title>
+	
+	<!-- iPad/iPhone specific css below, add after your main css >
+	<link rel="stylesheet" media="only screen and (max-device-width: 1024px)" href="ipad.css" type="text/css" />		
+	<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="iphone.css" type="text/css" />		
+	-->
+	
+	<link rel="stylesheet" href="tictactoe.css" type="text/css" />		
+
+	<script type="text/javascript" charset="utf-8" src="phonegap.0.9.4.min.js"></script>
+	<!-- JQUERY -->
+	<script src="js/jquery-1.5.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<!-- MAIN -->
+	<script src="js/tictactoe.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+
+  <body onload="onBodyLoad()">
+	<div id="header"><h1>Tic Tac Toe Extreme</h1></div>
+ 	
+	<div id="container">
+		<div id="one">
+			<div id="scroll">
+				<div class="inputRow">
+					<h2 class="label">Player X:</h2>
+					<input class="homeinput" type="text" name="player_x"/>
+				</div>
+				<div class="inputRow">
+					<h2 class="label">Player O:</h2>
+					<input class="homeinput" type="text" name="player_o"/>
+				</div>
+				<div id="play"><p>Play!</p></div>
+			</div>
+		</div>
+		<div id="two">
+			<div id="ticTacToeBoard">
+				<div id="row1">
+					<div class="button" id="button1">
+
+					</div>
+					<div class="button" id="button2">
+
+					</div>
+					<div class="button" id="button3">
+
+					</div>
+				</div>
+				<div id="row2">
+					<div class="button" id="button4">
+
+					</div>
+					<div class="button" id="button5">
+
+					</div>
+					<div class="button" id="button6">
+
+					</div>
+				</div>
+				<div id="row3">
+					<div class="button" id="button7">
+
+					</div>
+					<div class="button" id="button8">
+
+					</div>
+					<div class="button" id="button9">
+
+					</div>
+				</div>
+			</div>
+			<div id="whoseTurn">
+				<p id="turnDialog">----</p>
+			</div>
+			<div id="resetLastMove" style="visibility:hidden;">
+				<p>Reset Last Move</p>
+			</div>
+			<div id="startOver">
+				<p>Start Over</p>
+			</div>
+			<div id="leaderBoard">
+				<p>Leaderboard</p>
+			</div>
+		</div>
+		<div id="three">
+			<h2>Leaderboard:</h2>
+		</div>
+	</div>
+  </body>
+</html>

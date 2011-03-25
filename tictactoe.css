@@ -1,0 +1,175 @@
+/* Main Webkit Styles */
+* {
+-webkit-touch-callout: none; 				/* prevent callout to copy image, etc when tap to hold */
+-webkit-text-size-adjust: none; 			/* prevent webkit from resizing text to fit */
+-webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+-webkit-user-select: text; 					/* prevent copy paste, to allow, change 'none' to 'text' */
+-webkit-transform: translate3d(0,0,0);
+margin: 0;
+padding: 0;
+font-family: arial;
+-webkit-backface-visibility: hidden;
+-webkit-box-sizing: border-box;
+}
+
+#header {
+	position: absolute;
+	width: 100%;
+	height: 42px;
+	z-index: 305;
+	background: url('img/toolbar.png');
+}
+
+#header h1{
+	color: #fff;
+	display: block;
+	float: left;
+	width: 100%;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 9px 0;
+	text-align: center;
+}
+
+.inputRow{
+	clear: both;
+	border-bottom: 1px solid #E0E0E0;
+	width: 100%;
+	height: 50px;
+}
+
+.inputRow h2{
+	float: left;
+	font-size: 14px;
+	line-height: 48px;
+	color: gray;
+	font-weight: normal;
+	width: 80px;
+}
+
+.inputRow input{
+	font-size: 14px;
+	color: gray;
+	width: 148px;
+	height: 48px;
+	-webkit-appearance:caret;
+	border: 1px solid #fff;
+}
+
+.inputRow input:focus{
+	outline: none;
+}
+
+.homeRow{
+	background-color: #fff;
+	border: 1px solid #E0E0E0;
+	color: #222222;
+	display: block;
+	font-size: 17px;
+	font-weight: bold;
+	margin-bottom: -1px;
+	padding: 12px 10px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	white-space: nowrap;
+	-webkit-border-radius: 10px;
+}
+
+.homeRow input{
+	border: 1px solid green;
+	color: blue;
+	font-size: 8px;
+	height: 20px;
+}
+
+/** Container of the divs **/
+#container{
+position: absolute;
+overflow: hidden;
+top: 42px;
+left: 0px;
+width: 960px;
+height: 418px;
+-webkit-transition: all 350ms ease-in-out;
+}
+
+#container > div{
+float: left;
+}
+
+#one{
+height:460px;		/* Of course you need to specify the object height */
+position:relative;	/* On older OS versions "position" and "z-index" must be defined (absolute | relative), */
+z-index:1;			/* it seems that recent webkit is less picky and works anyway. */
+width:320px;
+background:#fff;
+overflow:hidden;
+}
+
+#ticTacToeBoard{
+	width: 320px;
+	height: 329px;
+	background: url('img/tictactoebgrnd.jpg') top center;
+}
+
+.selectedx{
+	background: url('img/x.jpg');
+}
+
+.selectedo{
+	background: url('img/o.jpg');
+}
+
+#row1, #row2, #row3{
+	height: 77px;
+	margin-top: 30px;
+	padding-top: 10px;
+}
+
+#row1{
+margin-top: 0px;
+}
+
+.button{
+	float: left;
+	margin-left: 27px;
+	height: 75px;
+	width: 72px;
+}
+
+#whoseTurn{
+	width: 320px;
+	height: 25px;
+	text-align: center;
+	color: black;
+	font: 16px arial;
+	margin-top: 10px;
+	background-color: #AEFD92;
+}
+
+#resetLastMove, #startOver, #leaderBoard{
+	width: 106px;
+	height: 46px;	
+	color: black;
+	font: 16px arial;	
+	text-align: center;
+	background-color: #DD4655;
+	float: left;
+}
+
+#startOver{
+	background-color: yellow;
+}
+
+#leaderBoard{
+background-color: #f8f9d9;
+}
+
+#play{
+	text-align: center;
+	color: green;
+	height: 50px;
+	line-height: 50px;
+	background-color: #AEFD92;
+}
